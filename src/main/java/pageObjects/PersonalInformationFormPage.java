@@ -7,12 +7,19 @@ public class PersonalInformationFormPage {
 
     private WebDriver driver;
 
+    //поле "Имя"
     private final By nameField = By.xpath("//input[@placeholder='* Имя']");
+    //поле "Фамилия"
     private final By surnameField = By.xpath("//input[@placeholder='* Фамилия']");
+    //поле "Адрес, куда привезти заказ"
     private final By addressField = By.xpath("//input[@placeholder='* Адрес: куда привезти заказ']");
+    //поле "Станция метро"
     private final By metroStationField = By.xpath("//input[@placeholder='* Станция метро']");
+    //Станция метро "Сокольники"
     private final By stationSokolniki = By.xpath("//li[@data-value='4']/button");
+    //поле "Телефон"
     private final By phoneField = By.xpath("//input[@placeholder='* Телефон: на него позвонит курьер']");
+    //кнопка "Далее"
     private final By nextButton = By.xpath("//button[text()='Далее']");
 
     public PersonalInformationFormPage(WebDriver driver) {

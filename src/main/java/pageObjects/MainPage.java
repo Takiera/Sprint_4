@@ -6,11 +6,16 @@ public class MainPage {
 
     private WebDriver driver;
 
+    //кнопка принятие cookie
     private final By acceptCookieButton = By.id("rcc-confirm-button");
+    //элемент списка в разделе "Вопросы о важном"
     private final By accordionButton = By.id("accordion__heading-0");
+    //элемент ответа на вопрос в разделе "Вопросы о важном"
     private final By accordionAnswer = By.id("accordion__panel-0");
+    //кнопка "Заказать" сверху страницы
     private final By topOrderButton = By.className("Button_Button__ra12g");
-    private final By bottomOrderButton = By.id("Button_Middle__1CSJM");
+    //кнопка "Заказать" снизу страницы
+    private final By bottomOrderButton = By.className("Button_Middle__1CSJM");
 
     public MainPage(WebDriver driver) {
         this.driver = driver;
