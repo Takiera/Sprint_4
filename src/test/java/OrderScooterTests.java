@@ -3,14 +3,14 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.openqa.selenium.WebDriver;
-import pageObjects.MainPage;
-import pageObjects.PersonalInformationFormPage;
-import pageObjects.RentScooterFormPage;
+import pageobjects.MainPage;
+import pageobjects.PersonalInformationFormPage;
+import pageobjects.RentScooterFormPage;
 
 import static org.junit.Assert.assertTrue;
 
 @RunWith(Parameterized.class)
-public class ScooterTests {
+public class OrderScooterTests {
 
     private final String name;
     private final String surname;
@@ -20,7 +20,7 @@ public class ScooterTests {
     private final String comment;
     private final String buttonLocation;
 
-    public ScooterTests(String name, String surname, String address, String phone, String date, String comment, String buttonLocation) {
+    public OrderScooterTests(String name, String surname, String address, String phone, String date, String comment, String buttonLocation) {
         this.name = name;
         this.surname = surname;
         this.address = address;
@@ -41,16 +41,6 @@ public class ScooterTests {
 
     @Rule
     public FactoryDriver factoryDriver = new FactoryDriver();
-
-    @Test
-    public void checkQuestionAboutImportantThingsClickShowAnswer() {
-        WebDriver driver = factoryDriver.getDriver();
-        MainPage mainPage = new MainPage(driver);
-        mainPage.openPage();
-        mainPage.clickAcceptCookieButton();
-        mainPage.clickAccordionButton();
-        assertTrue(mainPage.isQuestionAboutImportantThingsAnswerDisplayed());
-    }
 
     @Test
     public void checkMakeOrderWithCorrectData() {
