@@ -16,15 +16,15 @@ public class MainPage {
     private final By bottomOrderButton = By.className("Button_Middle__1CSJM");
 
     //получение локатора для вопроса
-    private By getAccordionButtonLocator(int questionId) {
-        String id = String.format("accordion__heading-%d", questionId);
-        return By.id(id);
+    private By getAccordionButtonLocator(String questionText) {
+        String question = String.format("//div[@class='accordion__button' and text()='%s']", questionText);
+        return By.xpath(question);
     }
 
     //получение локатора для ответа
-    private By getAccordionAnswerLocator(int answerId) {
-        String id = String.format("accordion__heading-%d", answerId);
-        return By.id(id);
+    private By getAccordionAnswerLocator(String answerText) {
+        String answer = String.format("//div[@class='accordion__panel']/p[text()='%s']", answerText);
+        return By.xpath(answer);
     }
 
     public MainPage(WebDriver driver) {
@@ -37,8 +37,8 @@ public class MainPage {
         }
     }
 
-    public void clickAccordionButton(int questionId) {
-        driver.findElement(getAccordionButtonLocator(questionId)).click();
+    public void clickAccordionButton(String questionText) {
+        driver.findElement(getAccordionButtonLocator(questionText)).click();
     }
 
     public PersonalInformationFormPage clickTopOrderButton() {
@@ -55,8 +55,8 @@ public class MainPage {
         driver.get(URL);
     }
 
-    public boolean isQuestionAboutImportantThingsAnswerDisplayed(int answerId) {
-        return driver.findElement(getAccordionAnswerLocator(answerId)).isDisplayed();
+    public boolean isQuestionAboutImportantThingsAnswerDisplayed(String answerText) {
+        return driver.findElement(getAccordionAnswerLocator(answerText)).isDisplayed();
     }
 
 }
